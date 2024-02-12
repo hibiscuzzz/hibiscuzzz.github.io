@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hibiriffa boutique</title>
+    <link rel="stylesheet" href="styles.css">
+<!-- internal stylesheet -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+        }
+/* table code */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+/* image sizing code */
+        img {
+            max-width: 100%; 
+            height: 200px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 4px rgba(235, 0, 227, 0.1);
+            margin-right: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- navigation bar styled in external stylesheet "styles.css" -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <!-- logo -->
+                <a href="/" id="navbar__logo">hibiriffa</a>
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <!-- menu -->
+                <ul class="navbar__menu">
+                    <li class="navbar__item">
+                        <a href="/index.html" class="navbar__links">home</a></li>
+                    <li class="navbar__item">
+                        <a href="/products.html" class="navbar__links">products</a> 
+                    </li>
+                    <li class="navbar__btn">
+                        <a href="/contact.html" class="button">contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+<!-- content -->
+    <br /><br /><h2>pricing</h2><br />
+    <img src="shirt1.png">
+    <img src="shirt2.png">
+    <img src="shirt3.png">
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>t-shirt</td>
+                <td>$20</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Hoodie</td>
+                <td>$40</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Sweatpants</td>
+                <td>$30</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+<!-- footer code -->
+    <footer class="fixed-footer">
+                
+        <p>&copy; hibiriffa</p>
+    </footer>
+
+</body>
+</html>

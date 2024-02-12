@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hibiriffa boutique</title>
+    <link rel="stylesheet" href="styles.css">
+<!-- internal stylesheet -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar styled in external stylesheet "styles.css" -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <!-- logo -->
+                <a href="/" id="navbar__logo">hibiriffa</a>
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <!-- menu -->
+                <ul class="navbar__menu">
+                    <li class="navbar__item">
+                        <a href="/index.html" class="navbar__links">home</a></li>
+                    <li class="navbar__item">
+                        <a href="/products.html" class="navbar__links">products</a> 
+                    </li>
+                    <li class="navbar__btn">
+                        <a href="/contact.html" class="button">contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+<!-- contact links -->
+    <br /><h2>links to my social media</h2><br />
+    <a href="https://www.linkedin.com/">email me!</a>
+    <a href="https://www.instagram.com/">instagram</a>
+    <br /><br />
+    <!-- form code for contact info -->
+    <form action='#' method='get'>
+        <br /><h2>sign up for my e-list!</h2>
+        <br /><label>name:</label> <input type="text" name='name' id='the_name'><br /><br />
+        <h4>allow email notifications:</h4><br />
+            <input type="checkbox" name="chkUpdates" value="updates"> updates
+            <input type="checkbox" name="chkPromotions" value="promotions"> promotions
+            <input type="checkbox" name="chkEvents" value="upcoming_events"> upcoming events
+        <br /><br /><h4>your fav items:</h4><br />
+            <input type="checkbox" name="chkTshirt" value="tshirts"> t-shirts
+            <input type="checkbox" name="chkArtprints" value="art prints"> art prints
+            <input type="checkbox" name="chkFigs" value="figurines"> figurines
+        <br /><br /><input type = "submit" value = " submit ">
+    </form>
+
+<!-- footer code -->
+    <footer class="fixed-footer">
+            
+        <p>&copy; hibiriffa</p>
+    </footer>
+
+</body>
+</html>
