@@ -105,8 +105,7 @@ footer {
     color: rgb(195, 227, 238);
     text-align: center;
     padding: 35px;
-    position: fixed;
-    bottom: 0;
+    
     height: 50px; 
     width: 100%
 }
