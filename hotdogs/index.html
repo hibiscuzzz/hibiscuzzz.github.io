@@ -13,53 +13,66 @@
         const FRIES_PRICE = 3.75;
         const DRINK_PRICE = 1.89;
         const TAX_RATE = 0.0625;
+// overall function 
+        function show() {
+// prompt how many of each item they want
+            var numDogs = parseInt(prompt("How many hotdogs do you want?"));
+            var numFries = parseInt(prompt("How many fries do you want?"));
+            var numSoda = parseInt(prompt("How many sodas do you want?"));
 // showMoney function
         function showMoney(amount) {
-// change to be non built-in functions
-            var rounded = Math.round(amount * 100) / 100;
-            return rounded.toFixed(2);
+            let rounded = Math.round(amount * 100) / 100;
+            let diff = amount - rounded;
+            if (diff >= 0.005) {
+                rounded += 0.01;
+            }
+            let result = rounded + '';
+            let decimalIndex = result.indexOf('.');
+            if (decimalIndex == -1) {
+                result += '.00';
+            } else {
+                let decimalPartLength = result.length - decimalIndex - 1;
+                if (decimalPartLength == 1) {
+                    result += '0';
+                } else if (decimalPartLength == 0) {
+                    result += '00';
+                }
+            }
+          return result;
         }
-// prompt how many x they want
-// check if this is right syntax?? slides
-      function show() {
-          var numDogs = parseInt(prompt("How many hotdogs do you want?"));
-          var numFries = parseInt(prompt("How many fries do you want?"));
-          var numSoda = parseInt(prompt("How many sodas do you want?"));
+// subtotal, discount if applicable, tax, total
+            var subtotal = (numDogs * HOTDOG_PRICE) + (numFries * FRIES_PRICE) + (numSoda * DRINK_PRICE);
 
-// subtotal
-          var subtotal = (numDogs * HOTDOG_PRICE) + (numFries * FRIES_PRICE) + (numSoda * DRINK_PRICE);
-
-// discount if applicable
-          var discount = 0;
-          if (subtotal >= 25) {
-              discount = subtotal * 0.1;
-              subtotal -= discount;
-          }
-
-// tax
-          var tax = subtotal * TAX_RATE;
-// total
-          var total = subtotal + tax;
-// order info receipt
-// is this right vvvvvvv??????
+            var discount = 0;
+            if (subtotal >= 25) {
+                discount = subtotal * 0.1;
+                discsubtotal = subtotal - discount;
+            } 
+            var tax = subtotal * TAX_RATE;
+            var total = subtotal + tax;
+            
+// order receipt display
         document.getElementById("orderInfo").innerHTML = 
-// edit the &nbsp;
-                "Quantity of hotdogs: " + numDogs + "," + "&nbsp;&nbsp;&nbsp;" +" Price: $" + showMoney(numDogs * HOTDOG_PRICE) + "<br>" +
-                "Quantity of fries: " + numFries + ", Price: $" + showMoney(numFries * FRIES_PRICE) + "<br>" +
-                "Quantity of sodas: " + numSoda + ", Price: $" + showMoney(numSoda * DRINK_PRICE) + "<br>" +
-                "Subtotal before discount: $" + showMoney(subtotal) + "<br>" +
-                "Discount: $" + showMoney(discount) + "<br>" +
-                "Subtotal after discount: $" + showMoney(subtotal) + "<br>" +
-                "Tax amount: $" + showMoney(tax) + "<br>" +
-                "Final total: $" + showMoney(total);
-      }
+            "Hotdogs: " + numDogs + "," + " Price: $" + showMoney(numDogs * HOTDOG_PRICE) + "<br>" +
+            "Fries: " + numFries + ", Price: $" + showMoney(numFries * FRIES_PRICE) + "<br>" +
+            "Sodas: " + numSoda + ", Price: $" + showMoney(numSoda * DRINK_PRICE) + "<br>" +
+            "Subtotal (before discount): $" + showMoney(subtotal) + "<br>";
+        if (discount > 0) {
+            document.getElementById("orderInfo").innerHTML += 
+            "Discount: $" + showMoney(discount) + "<br>" +
+            "Subtotal (with discount): $" + showMoney(discsubtotal) + "<br>";
+        }
+        document.getElementById("orderInfo").innerHTML +=
+            "Tax: $" + showMoney(tax) + "<br>" +
+            "TOTAL: $" + showMoney(total);
+    }
     </script>
 </head>
 
 <body>
   <h1>Welcome to Joe's Hotdog Stand!</h1>
   <form>
-<!-- is this right?????? vvvvvvvvv -->
+
     <input type="button" value="Place Order" onclick="show()">
   </form>
 
@@ -67,6 +80,3 @@
 
 </body>
 </html>
-
-
-
