@@ -1,20 +1,47 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <style>
+    /* styling for grid aesthetic */
+    .cell {
+      cursor: pointer;
+      background-color: rgb(251, 227, 249);
+      width: 100px; height: 100px;
+      border: 2px solid black;
+      box-shadow: 0 0 0 2px;
+      line-height: -75px;
+      font-size: 85px;
+    }
+    .cell:hover {
+      background-color: rgb(202, 231, 255);
+    }
+    /* styling for individual cell formatting to be a grid */
+    #cellContainer {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      margin: auto;
+      width: 225px;
+    }
+    /* styling for the entire app */
+    #game {
+      font-family: sans-serif;
+      text-align: center;
+    }
+  </style>
 </head>
-<body> 
+
+
+
+<body>
+  <div id="sq" class="square">
+    <h1>Tic Tac Toe</h1>
+    <div id="cellContainer"></div>
+      <script src="ttt2.js"></script>
+  </div>
+
+
 
 </body>
 </html>
-
-
-
-const NUM_SQUARES = 9;
-    for (i=0; i<NUM_SQUARES; i++)
-    {
-        id = "sq"+i;
-        document.write( "<div class='square' id='" + id + "'></div>" );
-    } -->

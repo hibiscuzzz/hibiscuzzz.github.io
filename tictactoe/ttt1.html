@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-  /* change the order of the code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    /* styling for grid aesthetic */
     .cell {
-      width: 100px;
-      height: 100px;
-      border: 2px solid black;
+      cursor: pointer;
       background-color: rgb(251, 227, 249);
+      width: 100px; height: 100px;
+      border: 2px solid black;
       box-shadow: 0 0 0 2px;
       line-height: -75px;
       font-size: 85px;
-      cursor: pointer;
     }
+    .cell:hover {
+      background-color: rgb(202, 231, 255);
+    }
+    /* styling for individual cell formatting to be a grid */
     #cellContainer {
       display: grid;
       grid-template-columns: repeat(3, auto);
       margin: auto;
       width: 225px;
     }
+    /* styling for the entire app */
     #game {
       font-family: sans-serif;
       text-align: center;
@@ -30,8 +34,6 @@
 
 <body>
   <div id="game" class="game">
-<!-- remove h1 and add to ttt2.html? -->
-    <h1>Tic Tac Toe</h1>
     <div id="cellContainer">
       <div cellIndex="0" class="cell">O</div>
       <div cellIndex="1" class="cell">X</div>
@@ -43,7 +45,5 @@
       <div cellIndex="7" class="cell"></div>
       <div cellIndex="8" class="cell"></div>
   </div>
-  <h2 id="infoText"></h2>
-  <button id="playagainButt">Play Again!</button>
 </body>
 </html>
