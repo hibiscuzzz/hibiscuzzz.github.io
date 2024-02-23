@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  /* change the order of the code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+      background-color: rgb(251, 227, 249);
+      box-shadow: 0 0 0 2px;
+      line-height: -75px;
+      font-size: 85px;
+      cursor: pointer;
+    }
+    #cellContainer {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      margin: auto;
+      width: 225px;
+    }
+    #game {
+      font-family: sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="game" class="game">
+<!-- remove h1 and add to ttt2.html? -->
+    <h1>Tic Tac Toe</h1>
+    <div id="cellContainer">
+      <div cellIndex="0" class="cell">O</div>
+      <div cellIndex="1" class="cell">X</div>
+      <div cellIndex="2" class="cell"></div>
+      <div cellIndex="3" class="cell"></div>
+      <div cellIndex="4" class="cell"></div>
+      <div cellIndex="5" class="cell"></div>
+      <div cellIndex="6" class="cell"></div>
+      <div cellIndex="7" class="cell"></div>
+      <div cellIndex="8" class="cell"></div>
+  </div>
+  <h2 id="infoText"></h2>
+  <button id="playagainButt">Play Again!</button>
+</body>
+</html>

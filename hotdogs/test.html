@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Joe's Hotdog Stand</title>
+  <style type="text/css">
+    html,body,input,select {font-size: 17px; padding: 4px; margin-bottom:4px;}
+    label {padding-right: 8px}
+  </style>
+  <script language="javascript">
+    // Associative array for item names and prices
+    const ITEM_PRICES = {
+      "Hotdog": 4.65,
+      "Fries": 3.75,
+      "Soda": 1.89
+    };
+
+    // Initialize associative array for item quantities
+    var itemQuantities = {};
+
+    // Function to get quantities from the user
+    function getQuantities() {
+      for (var item in ITEM_PRICES) {
+        var quantity = parseInt(prompt("How many " + item + "s do you want?"));
+        itemQuantities[item] = quantity;
+      }
+      calculateTotal();
+    }
+
+    // Function to calculate subtotal
+    function calculateTotal() {
+      var subtotal = 0;
+      for (var item in itemQuantities) {
+        subtotal += itemQuantities[item] * ITEM_PRICES[item];
+      }
+      displayReceipt(subtotal);
+    }
+
+    // Function to display the receipt
+    function displayReceipt(subtotal) {
+      var tax = subtotal * 0.0625;
+      var total = subtotal + tax;
+      var receipt = "<h2>Receipt</h2>";
+      for (var item in itemQuantities) {
+        receipt += item + ": " + itemQuantities[item] + " @ $" + ITEM_PRICES[item].toFixed(2) + " each<br>";
+      }
+      receipt += "<br>Subtotal: $" + subtotal.toFixed(2) + "<br>";
+      receipt += "Tax: $" + tax.toFixed(2) + "<br>";
+      receipt += "Total: $" + total.toFixed(2);
+      document.getElementById("receipt").innerHTML = receipt;
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to Joe's Hotdog Stand!</h1>
+  <button onclick="getQuantities()">Place Order</button>
+  <div id="receipt">&nbsp;</div>
+</body>
+</html>
