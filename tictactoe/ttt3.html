@@ -43,9 +43,11 @@
 <body>
     <h1>Tic Tac Toe</h1>
     <div class="playerTurns">
-      <h2>O's turn</h2>
+      <!-- placeholder header to be filled w current player -->
+      <h2></h2>
     </div>
     <div id="cellContainer">
+      <!-- given code from spec -->
       <script>
         const NUM_SQUARES = 9;
         for (i=0; i<NUM_SQUARES; i++)
@@ -56,25 +58,51 @@
       </script>
     </div>
     <div class="winCondition">
-      <h2>X won</h2>
+      <h2></h2>
     </div>
+    <button onclick="startGame()">Start Game</button>
     <script>
-        square = document.getElementsByClassName("square");
-
-        for (i=0; i< square.length; i++)
-        {
-           square[i].addEventListener("click", function(){
-
-            square = event.target;
-            id = event.target.id;
-
-            square.innerHTML = "X";
-            alert(id);
-                        
-
-           });
+      squares = document.getElementsByClassName("square");
+      currentPlayer = 'X'; 
+  
+        // randomly choose starting player: X or O
+        function randomPlayerStart() {
+            currentPlayer = Math.random() < 0.5 ? 'X' : 'O';
+            // changes the header to match the current player turn
+            document.querySelector('.playerTurns h2').textContent = currentPlayer + "'s turn";
         }
-    </script>
 
+        // start game
+        function startGame() {
+            // clear
+            for (let i = 0; i < squares.length; i++) {
+                squares[i].innerHTML = '';
+            }
+            randomPlayerStart();
+        }
+
+
+      for (i = 0; i < squares.length; i++) {
+          squares[i].addEventListener("click", function(event) {
+              square = event.target;
+              id = event.target.id;
+  
+              // check if square is filled or not
+              if (square.innerHTML === '') {
+                  square.innerHTML = currentPlayer;
+  
+                  // popup with sq number
+                  alert(id);
+  
+                  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';   
+                
+                  // changing the h2 to display whose turn it is
+                  turnIndicator = document.querySelector('.playerTurns h2');
+                  turnIndicator.textContent = currentPlayer + "'s turn";
+                }
+          });
+      }
+  </script>
+  
 </body>
 </html>
