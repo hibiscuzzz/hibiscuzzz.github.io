@@ -1,18 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* styling for grid aesthetic */
+    .square {
+      cursor: pointer;
+      background-color: rgb(251, 227, 249);
+      width: 100px; height: 100px;
+      border: 2px solid #000;
+      box-shadow: 0 0 0 2px;
+      line-height: -75px;
+      font-size: 85px;
+    }
+    .squarel:hover {
+      background-color: rgb(202, 231, 255);
+    }
+    /* styling for individual cell formatting to be a grid */
+    #cellContainer {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      margin: auto;
+      width: 225px;
+    }
+    /* styling for the entire app */
+    #game {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .playerTurns {
+      border: 3px solid #000;
+    }
+    .winCondition {
+      border: 3px solid #000;
+    }
+  </style>
 </head>
 
 
 
 <body>
+    <h1>Tic Tac Toe</h1>
+    <div class="playerTurns">
+      <h2>O's turn</h2>
+    </div>
+    <div id="cellContainer">
+      <script>
+        const NUM_SQUARES = 9;
+        for (i=0; i<NUM_SQUARES; i++)
+        {
+            id = "sq"+i;
+            document.write( "<div class='square' id='" + id + "'></div>" );
+        }
+      </script>
+    </div>
+    <div class="winCondition">
+      <h2>X won</h2>
+    </div>
+    <script>
+        square = document.getElementsByClassName("square");
 
-<h2 id="infoText"></h2>
-    <button id="playagainButt">Play Again!</button>
+        for (i=0; i< square.length; i++)
+        {
+           square[i].addEventListener("click", function(){
+
+            square = event.target;
+            id = event.target.id;
+
+            square.innerHTML = "X";
+            alert(id);
+                        
+
+           });
+        }
+    </script>
 
 </body>
 </html>
