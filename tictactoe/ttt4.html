@@ -116,7 +116,7 @@
       }
 
       function checkWinOrStalemate() {
-          // check for a win
+          // check for a win in array
           for (const condition of winConditions) {
               const [a, b, c] = condition;
               if (moves[a] !== '-' && moves[a] === moves[b] && moves[a] === moves[c]) {
