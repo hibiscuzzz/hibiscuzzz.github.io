@@ -1,0 +1,42 @@
+/* @charset "utf-8";
+
+
+name {font-size: 24px; font-weight: 700; display:block; }
+id:before {content: "ID "}
+id {display:block} */
+
+@charset "utf-8";
+/* CSS document */
+
+/* Styling for <name> elements */
+name {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    color: #333; /* Example color */
+}
+
+/* Styling for <description> elements */
+description {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px; /* Space below the description */
+}
+
+/* Styling for <price> elements */
+price {
+    font-size: 20px;
+    font-weight: bold;
+    color: green; /* Price color */
+    display: block;
+    margin-bottom: 5px; /* Space below the price */
+}
+
+/* Styling for <category> elements */
+category {
+    display: inline-block; /* Display categories inline */
+    margin-right: 5px; /* Space between categories */
+    background-color: #f0f0f0; /* Background color for category tags */
+    padding: 2px 5px; /* Padding inside category tags */
+    border-radius: 5px; /* Rounded corners for category tags */
+}

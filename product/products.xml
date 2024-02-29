@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+
+
+<products>
+    <product>
+        <name>Vintage T-shirt</name>
+        <description>Tie-dye Grateful Dead T-shirt</description>
+        <price>$35</price>
+        <categories>
+            <category>clothing</category>
+            <category>vintage</category>
+        </categories>
+    </product>
+    <!-- Add more products here if needed -->
+</products>
