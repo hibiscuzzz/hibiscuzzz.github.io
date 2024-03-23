@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtering Products</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .product-container, .filtered-products-container {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .product {
+            margin: 10px 0;
+            border: .5px solid #da20c1;
+            padding: 20px;
+        }
+        .product-name {
+            font-weight: bold;
+            font-size: 30px; 
+            color: #da20c1; 
+            margin: 5px 0;
+        }
+        .product-description, .product-categories { 
+            margin-top: 5px; 
+        }
+        .product-price {
+            color: #008000; 
+            text-align: right;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <!-- selection dropdown -->
+    <select id="categorySelect">
+        <option value="">Select a category</option>
+    </select>
+
+    <button id="filterBtn">Filter me!</button>
+
+    <!-- div container to display product list -->
+    <div id="productDisplay" class="product-container"></div>
+
+    <div id="filteredProducts" class="filtered-products-container" style="display: none;"></div> 
+
+    <script>
+        // stores all products from JSON
+        let productsData = [];
+
+        // using jQuery get() method to retrieve products.json file and callback
+        $.get("products.json", function(data) {
+            productsData = data.items;
+            const categories = new Set();
+
+            // display all products and extract categories
+            productsData.forEach(item => {
+                // append product details to display area
+                $('#productDisplay').append(createProductHtml(item));
+                item.categories.forEach(category => categories.add(category));
+            });
+
+            // content for category selection dropdown
+            categories.forEach(category => {
+                $('#categorySelect').append($('<option>', { 
+                    value: category,
+                    text: category 
+                }));
+            });
+        });
+
+        // string to loop thru the data array for each item
+        function createProductHtml(item) {
+            return `<div class="product">
+                        <div class="product-name">${item.name}</div>
+                        <div class="product-price">$${item.price}</div>
+                        <div class="product-description">${item.description}</div>
+                        <div class="product-categories">Categories: ${item.categories.join(', ')}</div>
+                    </div>`;
+        }
+
+        // handle filter button click to display filtered products
+        $('#filterBtn').click(function() {
+            const selectedCategory = $('#categorySelect').val();
+            
+            // clear filtered products container
+            $('#filteredProducts').empty(); 
+
+            if (selectedCategory) {
+                // show only filtered products' names n hide the entire product list
+                productsData.filter(item => item.categories.includes(selectedCategory))
+                    .forEach(item => {
+                        $('#filteredProducts').append(`<div class="product-name">${item.name}</div>`);
+                    });
+                // hide the entire product list
+                $('#productDisplay').hide(); 
+                // show only filtered product names
+                $('#filteredProducts').show(); 
+            } else {
+                // if no category is selected, show the full list again
+                $('#productDisplay').show();
+                // hide the filtered results
+                $('#filteredProducts').hide();
+            }
+        });
+    </script>
+
+</body>
+</html>

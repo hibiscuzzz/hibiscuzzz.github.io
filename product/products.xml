@@ -1,16 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="style.css"?>
-
+<?xml-stylesheet type="text/css" href="styles.css"?>
 
 <products>
-    <product>
-        <name>Vintage T-shirt</name>
-        <description>Tie-dye Grateful Dead T-shirt</description>
-        <price>$35</price>
-        <categories>
-            <category>clothing</category>
-            <category>vintage</category>
-        </categories>
-    </product>
-    <!-- Add more products here if needed -->
+    <productListing>
+        <!-- 1 -->
+        <product>
+            <name>Hello Kitty Plush</name>
+            <description>Soft, cuddly plush toy.</description>
+            <price>25</price>
+            <categories>
+                <category>Toys</category>
+                <category>Collectibles</category>
+            </categories>
+        </product>
+
+        <!-- 2 -->
+        <product>
+            <name>My Melody Keychain</name>
+            <description>Cute, durable accessory.</description>
+            <price>10</price>
+            <categories>
+                <category>Accessories</category>
+                <category>Collectibles</category>
+            </categories>
+        </product>
+
+        <!-- 3 -->
+        <product>
+            <name>Keroppi Notebook</name>
+            <description>Green, frog-themed.</description>
+            <price>8</price>
+            <categories>
+                <category>Stationary</category>
+            </categories>
+        </product>
+
+        <!-- 4 -->
+        <product>
+            <name>Gudetama Egg Mold</name>
+            <description>Fun kitchen tool.</description>
+            <price>12</price>
+            <categories>
+                <category>Kitchenware</category>
+            </categories>
+        </product>
+
+        <!-- 5 -->
+        <product>
+            <name>Cinnamoroll Socks</name>
+            <description>Cozy, cute design.</description>
+            <price>5</price>
+            <categories>
+                <category>Clothing</category>
+                <category>Accessories</category>
+            </categories>
+        </product>
+
+        <!-- 6 -->
+        <product>
+            <name>Pompompurin Mug</name>
+            <description>Adorable, for beverages.</description>
+            <price>15</price>
+            <categories>
+                <category>Kitchenware</category>
+            </categories>
+        </product>
+
+        <!-- 7 -->
+        <product>
+            <name>Little Twin Stars Pen</name>
+            <description>Sparkly, writing tool.</description>
+            <price>7</price>
+            <categories>
+                <category>Stationary</category>
+            </categories>
+        </product>
+
+        <!-- 8 -->
+        <product>
+            <name>Badtz-Maru Backpack</name>
+            <description>Spacious, trendy.</description>
+            <price>30</price>
+            <categories>
+                <category>Accessories</category>
+                <category>Clothing</category>
+            </categories>
+        </product>
+
+        <!-- 9 -->
+        <product>
+            <name>Chococat Phone Case</name>
+            <description>Protective, stylish.</description>
+            <price>20</price>
+            <categories>
+                <category>Electronics</category>
+                <category>Accessories</category>
+            </categories>
+        </product>
+
+        <!-- 10 -->
+        <product>
+            <name>Aggretsuko T-shirt</name>
+            <description>Fierce, comfortable.</description>
+            <price>20</price>
+            <categories>
+                <category>Clothing</category>
+            </categories>
+        </product>
+
+    </productListing>
 </products>

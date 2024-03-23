@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .product-container {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .product {
+            margin: 10px 0;
+            border: .5px solid #da20c1;
+            padding: 20px;
+        }
+        .product-name { 
+            font-weight: bold;
+            font-size: 30px; 
+            color: #da20c1; 
+            margin: 5px 0;
+        }
+        .product-price { 
+            color: #008000; 
+            text-align: right;
+            font-size: 25px;
+        }
+        .product-description, .product-categories { 
+            margin-top: 5px; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- div container to display product list -->
+    <div id="productDisplay" class="product-container"></div>
+    
+    <script>
+        // using jQuery get() method to retrieve products.json file and callback
+        $.get("products.json", function(data) {
+            // intitialize string w html content
+            let htmlContent = '';
+
+            // string to loop thru the data array for each item
+            data.items.forEach(function(item) {
+                htmlContent += `<div class="product">
+                                    <div class="product-name">${item.name}</div>
+                                    <div class="product-price">$${item.price}</div>
+                                    <div class="product-description">${item.description}</div>
+                                    <div class="product-categories">Categories: ${item.categories.join(', ')}</div>
+                                </div>`;
+            });
+
+            // html into productDisplay div
+            document.getElementById('productDisplay').innerHTML = htmlContent;
+       
+        });
+
+    </script>
+    
+
+</body>
+</html>

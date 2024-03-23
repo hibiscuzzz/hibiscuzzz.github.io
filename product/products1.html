@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .product { 
+            border: 1px solid #000; 
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px; 
+        }
+    </style>
+</head>
+<body>
+	<script language="javascript">
+		var products = {
+        items: [
+            {
+                name: "Hello Kitty Plush",
+                description: "Soft, cuddly plush toy.",
+                price: 25,
+                categories: ["Toys", "Collectibles"]
+            },
+            {
+                name: "My Melody Keychain",
+                description: "Cute, durable accessory.",
+                price: 10,
+                categories: ["Accessories", "Collectibles"]
+            },
+            {
+                name: "Keroppi Notebook",
+                description: "Green, frog-themed.",
+                price: 8,
+                categories: ["Stationary"]
+            },
+            {
+                name: "Gudetama Egg Mold",
+                description: "Fun kitchen tool.",
+                price: 12,
+                categories: ["Kitchenware"]
+            },
+            {
+                name: "Cinnamoroll Socks",
+                description: "Cozy, cute design.",
+                price: 5,
+                categories: ["Clothing", "Accessories"]
+            },
+            {
+                name: "Pompompurin Mug",
+                description: "Adorable, for beverages.",
+                price: 15,
+                categories: ["Kitchenware"]
+            },
+            {
+                name: "Little Twin Stars Pen",
+                description: "Sparkly, writing tool.",
+                price: 7,
+                categories: ["Stationary"]
+            },
+            {
+                name: "Badtz-Maru Backpack",
+                description: "Spacious, trendy.",
+                price: 30,
+                categories: ["Accessories", "Clothing"]
+            },
+            {
+                name: "Chococat Phone Case",
+                description: "Protective, stylish.",
+                price: 20,
+                categories: ["Electronics", "Accessories"]
+            },
+            {
+                name: "Aggretsuko T-shirt",
+                description: "Fierce, comfortable.",
+                price: 20,
+                categories: ["Clothing"]
+            }],
+            
+            // mapping each product to a JSON string w only name and price
+			toJSON() {
+				return this.items.map(item => `{'name': '${item.name}', 'price': ${item.price}}`).join(", ");
+			}
+		};
+
+		// display each products name and price
+		products.items.forEach(function(item) {
+            document.write(
+                `<div class="product">
+                    <span class="product-name">${item.name}</span><br>
+                    <span class="product-description">${item.description}</span><br>
+                    <span class="product-price">$${item.price}</span><br>
+                    <span class="product-categories">Categories: ${item.categories.join(", ")}</span>
+                </div>`
+            );		
+        });
+
+        // converts the entire product list object to a JSON string
+ 		var strProducts = JSON.stringify(products); 
+		console.log(strProducts);
+
+	</script>
+</body>
+</html>
