@@ -2,55 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Palette</title>
-    <!-- <style>
-        #results {
-            margin-top: 20px;
-        }
-        .color {
-            width: 100px;
-            height: 100px;
-            float: left;
-            margin: 5px;
-            border: 1px solid #000; 
-        }
-    </style> -->
+    <title>Neko Image Display</title>
+    <h1>Neko Image Display</h1>
 </head>
 <body>
-
-<h2>Generated Color Palette</h2>
-<div id="results"></div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var url = "https://colormind.io/api/";
-    var data = {
-        model: "default",
-        input: [[44,43,44],[90,83,82],"N","N","N"]
-    };
-
-    var http = new XMLHttpRequest();
-    http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200) {
-            var palette = JSON.parse(http.responseText).result;
-            var resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = ''; 
-            
-            palette.forEach(function(color) {
-                var colorDiv = document.createElement('div');
-                colorDiv.className = 'color'; 
-                colorDiv.style.backgroundColor = 'rgb(' + color.join(',') + ')';
-                resultsContainer.appendChild(colorDiv);
-            });
-        }
-    };
-
-    http.open("POST", url, true);
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send(JSON.stringify(data));
-});
-</script>
-
+    <div id="image-display">Loading image...</div>
+    <script src="script.js"></script>
+    <h2>Questions:</h2>
+    <p>Describe the API you selected and what it does
+    cite the website where you found it
+    Describe the options/parameters you used for the API request. i.e., what info did you
+    need to provide (in the query string) to the API to get your results?
+    Give two applications where this API would be helpful.</p>
 </body>
 </html>
