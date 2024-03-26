@@ -2,8 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette</title>
+    <!-- <style>
+        #results {
+            margin-top: 20px;
+        }
+        .color {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 5px;
+            border: 1px solid #000; 
+        }
+    </style> -->
 </head>
 <body>
+
+<h2>Generated Color Palette</h2>
+<div id="results"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var url = "https://colormind.io/api/";
+    var data = {
+        model: "default",
+        input: [[44,43,44],[90,83,82],"N","N","N"]
+    };
+
+    var http = new XMLHttpRequest();
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            var palette = JSON.parse(http.responseText).result;
+            var resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ''; 
+            
+            palette.forEach(function(color) {
+                var colorDiv = document.createElement('div');
+                colorDiv.className = 'color'; 
+                colorDiv.style.backgroundColor = 'rgb(' + color.join(',') + ')';
+                resultsContainer.appendChild(colorDiv);
+            });
+        }
+    };
+
+    http.open("POST", url, true);
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send(JSON.stringify(data));
+});
+</script>
 
 </body>
 </html>
