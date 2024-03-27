@@ -1,18 +1,21 @@
 fetch('https://nekos.best/api/v2/neko')
+
 .then(response => {
     if (!response.ok) {
         throw new Error('ERROR');
     }
-    return response.json(); // Parse the JSON from the response
+    // Parse the JSON from the response
+    return response.json(); 
 })
 .then(json => {
-    displayImage(json.results[0].url); // Assuming the API response structure includes results
+    displayImage(json.results[0].url); 
 })
 .catch(error => {
     console.error('There was an issue fetching the neko image:', error);
     document.getElementById('image-display').innerText = 'Failed to load image';
 });
 
+// Styling for the images
 function displayImage(imageUrl) {
     const displayElement = document.getElementById('image-display');
     
