@@ -1,28 +1,29 @@
 <?php
-// Check if the 'number' GET parameter is set
-if (isset($_GET['number'])) {
-    $number = intval($_GET['number']); // Convert the GET parameter to an integer
+// Check if the number GET parameter is set and is a positive integer
+if (isset($_GET['number']) && filter_var($_GET['number'], FILTER_VALIDATE_INT) && $_GET['number'] > 0) {
+    $number = intval($_GET['number']);
+    // making sure the array starts with 0 if $number is at least 1
+    $fib = $number >= 1 ? [0] : []; 
+    if ($number >= 2) {
+        $fib[] = 1; 
+    }
 
-    // Initialize the Fibonacci sequence with the first two numbers
-    $fib = [0, 1];
-
-    // Generate the Fibonacci sequence of length $number
     for ($i = 2; $i < $number; $i++) {
         $fib[] = $fib[$i - 1] + $fib[$i - 2];
     }
 
-    // Prepare the response array with the "data" key
+    // Data key
     $response = [
         "data" => $fib
     ];
 
-    // Set the header to indicate the response is in JSON format
+    // indicate the response is in JSON format
     header('Content-Type: application/json');
 
-    // Echo the JSON-encoded response
     echo json_encode($response);
 } else {
-    // If the 'number' GET parameter is not set, respond with an error message
-    echo json_encode(["error" => "No number provided"]);
+    // If number GET parameter is not set or invalid, respond with an error message
+    header('Content-Type: application/json');
+    echo json_encode(["error" => "Invalid or no number provided"]);
 }
 ?>

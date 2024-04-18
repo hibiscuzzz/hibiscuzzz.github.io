@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Office Hours Display</title>
+<title>Office Hours</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -25,7 +25,7 @@
 <body>
 
 <?php
-// Associative array with days as keys and office hours as values
+// associative array w days = keys & office hours = values
 $officeHours = [
     'Monday' => '9am - 5pm',
     'Tuesday' => '9am - 5pm',
@@ -36,7 +36,7 @@ $officeHours = [
     'Sunday' => 'Closed'
 ];
 
-// Loop through the array and display each day with its hours
+// Loop through the array and show each day w respective hours
 echo '<div class="office-hours">';
 foreach ($officeHours as $day => $hours) {
     echo '<div class="hours"><span class="day">' . $day . ':</span> ' . $hours . '</div>';
